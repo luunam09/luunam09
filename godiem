@@ -1,0 +1,116 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+	int chon;
+	do{
+	printf("\n\n---------------MENU----------\n\n");
+	printf("1. Xuat an trua\n2. KT do an trua\n3. Do an\n4. Thoat\n");
+	printf("\nMoi ban chon chuc nang : ");
+	scanf("%d",&chon);
+	fflush(stdin);
+	switch(chon){
+		
+		case 1:{
+			
+			printf("Ban da chon chuc nang so 1 !\n");
+			char tenXuatAn[30],tenCuaHang[30];
+			float giaXuatAn;
+			printf("Nhap ten xuat an : ");
+			gets(tenXuatAn  );
+			printf("Nhap gia xuat an: ");
+			scanf("%f", &giaXuatAn  );
+			fflush(stdin);
+			printf("Nhap ten cua hang: ");
+			gets(tenCuaHang );
+			printf("Ten xuat an: %s\n", tenXuatAn);
+			printf("Gia xuat an: %f\n", giaXuatAn );
+			printf("Ten cua hang : %s\n",tenCuaHang );
+			break;
+		}
+		
+		case 2:{
+			
+			printf("Ban da chon chuc nang 2!\n");
+			int chiSo, tong=0;
+			do{
+			printf("Nhap chi so do an( chi so > 0) : ");
+			scanf("%d",&chiSo );
+			}while(chiSo < 0);
+			if(chiSo >200){
+				printf("Do an dat chuan\n");
+			}
+			else if(chiSo  >100){
+				printf("Do an chua tot\n");
+			}
+			else if(chiSo  >50){
+				printf("Khong nen an\n");
+			}
+			else{
+				printf("Khong the an\n");
+			}
+			for(int i=1; i<=chiSo ; i++) tong+=i;
+			printf("Tong cac so tu 1 -----> chi so : %d\n", tong);
+			break;
+		}
+		case 3:{
+			
+			printf("Ban da chon chuc nang so 3 !\n");
+			int n;
+			int a[100];
+			printf("Nhap vao so luong do an :");
+			scanf("%d",&n );
+			for(int i=0; i<n; i++){
+				printf("Nhap vao gia do an thu %d : ",i);
+				scanf("%d",&a[i]);
+			}
+			printf("So luong do an trong cua hang la : %d\n",n);
+			printf("Vi tri do an co gia > 50 : ");
+			for(int i=0; i<n; i++){
+				if(a[i]>50){
+					printf("%d\t", i);
+				}
+			}
+			int max=0;
+			for(int i=0; i<n; i++){
+				if(a[i]>max){
+					max=a[i];
+				}
+			}
+			printf("\nDo an co gia lon nhat la : %d\n",max);
+			for(int i=0; i<n; i++){
+				int tmp;
+				for(int j=i+1; j<n; j++){
+					if(a[i]>a[j]){
+						tmp=a[i];
+						a[i]=a[j];
+						a[j]=tmp;
+					}
+				}
+			}
+			printf("Sap xep tang dan la : ");
+			for(int i=0; i<n; i++){
+				printf("%d\t",a[i]);
+			}
+			break;
+		}
+		case 4:{
+			
+			printf("Thoat !\n");
+			exit(0);
+			
+			break;
+		}
+		
+		default :{
+			
+			printf("\n\n\nMoi nhap lai !");
+			
+			break;
+		}
+			
+	}
+	
+	}while(1);
+	
+}
